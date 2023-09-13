@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { TaskComponent } from './task/task.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatIconModule,
     MatMenuModule,
     MatDialogModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
