@@ -14,6 +14,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import { TaskComponent } from './task/task.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatMenuModule,
     MatDialogModule,
     MatRadioModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
