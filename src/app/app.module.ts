@@ -16,13 +16,15 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AllTasksComponent } from './all-tasks/all-tasks.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    TaskComponent
+    TaskComponent,
+    AllTasksComponent
   ],
   imports: [
     BrowserModule,

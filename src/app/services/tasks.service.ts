@@ -7,12 +7,20 @@ import { Task } from '../model/task';
 })
 export class TasksService {
 
-  tasks$: BehaviorSubject<Task> =  new  BehaviorSubject<Task>({id: '', name: '', description:'', completed: false});
+  tasks$: BehaviorSubject<Task[]> =  new  BehaviorSubject<Task[]>([]);
 
   constructor() { }
 
-  addTask(newTask: Task) {
-      this.tasks$.next(newTask);
+  addTask(name: string, description: string) {
+    const newTask:Task = {
+      id: Math.random().toString(16),
+      name:name,
+      description: description,
+      completed: false
+    }
+    const allTasks: Task[] = [...this.tasks$.getValue(), newTask];
+    this.tasks$.next(allTasks);
+
   }
 
   getTasks() {
