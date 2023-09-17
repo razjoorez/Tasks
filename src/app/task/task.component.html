@@ -1,24 +1,21 @@
 <div mat-dialog-title>
   <h1>TaskForm</h1>
 </div>
+<form action="" [formGroup]="addTaksForm" (ngSubmit)="save()">
 <div mat-dialog-content class="content">
   <div class="row">
     <mat-form-field appearance="outline">
       <mat-label>Task Name</mat-label>
-      <input matInput>
+      <input matInput type="text" formControlName="name">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Task Description</mat-label>
-      <input matInput>
+      <input matInput type="text" formControlName="description">
     </mat-form-field>
   </div>
-  <!-- <div class="row">
-    <p><mat-checkbox >Completed</mat-checkbox></p>
-   
-
-  </div> -->
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions class="action">
   <button mat-raised-button>Cancel</button>
-  <button mat-raised-button color="primary">Save</button>
+  <button mat-raised-button color="primary" type="submit">Save</button>
 </div>
+</form>
