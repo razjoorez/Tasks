@@ -17,7 +17,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AllTasksComponent } from './all-tasks/all-tasks.component';
-
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import { AllTasksComponent } from './all-tasks/all-tasks.component';
     MatRadioModule,
     MatCheckboxModule,
     ReactiveFormsModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
