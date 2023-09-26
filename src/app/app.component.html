@@ -1,5 +1,20 @@
 <app-header></app-header>
-<app-all-tasks></app-all-tasks>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Completed</th>
+        <th>Edit</th>
+    </tr>
+    <tr *ngFor="let task of tasks$ | async">
+        <td>{{task.name}}</td>
+        <td>{{task.description}}</td>
+        <td>{{task.completed}}</td>
+        <td></td>
+    </tr>
+</table>
+<button (click)="openTaskDialog()">button 2</button>
 <button mat-raised-button (click)="addBtn('task1', 'task2')">Add </button>
 <div *ngFor="let task of tasks$ | async">
     {{task.name}}

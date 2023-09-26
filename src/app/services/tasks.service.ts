@@ -6,8 +6,14 @@ import { Task } from '../model/task';
   providedIn: 'root'
 })
 export class TasksService {
-
-  tasks$: BehaviorSubject<Task[]> =  new  BehaviorSubject<Task[]>([]);
+  initTasks:Task[] = [
+    {id: '1',
+    name: 'initial task',
+    description: 'loaded',
+    completed: true  
+  }
+  ]
+  tasks$: BehaviorSubject<Task[]> =  new  BehaviorSubject<Task[]>(this.initTasks);
 
   constructor() { }
 
@@ -24,7 +30,7 @@ export class TasksService {
   }
 
   getTasks() {
-    return this.tasks$.asObservable();
+    return this.tasks$;
   }
 }
 
