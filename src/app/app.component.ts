@@ -15,9 +15,9 @@ export class AppComponent implements OnInit {
   tasks$!: Observable<Task[]>;
   constructor(private taskService: TasksService, 
               private dialog: MatDialog) {
-    // this.taskService.tasks$.subscribe((tasks)=> {
-    //   console.log('tasks:' , tasks)
-    // })
+    this.taskService.tasks$.subscribe((tasks)=> {
+      console.log('tasks:' , tasks)
+    })
     
   }
   ngOnInit(): void {
@@ -25,14 +25,16 @@ export class AppComponent implements OnInit {
   }
 
   addBtn(name: string, description: string){
-    // name= 'angular';
-    // description = 'do angular lazy loading';
+    
     this.taskService.addTask(name,description);
-    //this.tasks$ = this.taskService.getTasks();
   } 
 
   openTaskDialog() {
     this.dialog.open(TaskComponent)
+  }
+
+  updateTask() {
+    this.taskService.updateTask('1', 'nameee', 'desss') ;
   }
 }
 

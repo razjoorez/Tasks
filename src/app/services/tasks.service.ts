@@ -29,8 +29,25 @@ export class TasksService {
 
   }
 
+  updateTask(id:string,name: string, description: string) {
+      const currentTasks = [...this.tasks$.getValue()];
+      const updatedTasks = currentTasks.map(obj=> {
+        if(obj.id === id) {
+          return { ...obj,name: name, description: description}
+        }
+        return obj;
+      });
+
+      this.tasks$.next(updatedTasks);
+
+  }
+
   getTasks() {
     return this.tasks$;
+  }
+
+  filterTask() {
+
   }
 }
 
