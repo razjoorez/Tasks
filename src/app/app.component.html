@@ -1,9 +1,9 @@
 <app-header></app-header>
-<app-all-tasks></app-all-tasks>
-<button mat-raised-button (click)="addBtn('task1', 'task2')">Add </button>
-<div *ngFor="let task of tasks$ | async">
-    {{task.name}}
+<div class="table-container">
+    <app-all-tasks></app-all-tasks>
+
 </div>
+
 
 
 <router-outlet></router-outlet>

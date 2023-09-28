@@ -6,8 +6,24 @@ import { Task } from '../model/task';
   providedIn: 'root'
 })
 export class TasksService {
-
-  tasks$: BehaviorSubject<Task[]> =  new  BehaviorSubject<Task[]>([]);
+  initTasks:Task[] = [
+    {id: '1',
+    name: 'Piano',
+    description: 'Practice Chopin Nocturne 30 minutes a day ',
+    completed: true  
+  },
+  {id: '2',
+  name: 'Exercise',
+  description: 'Walk at least 20 minutes a day',
+  completed: true  
+},
+{id: '3',
+name: 'Java',
+description: 'Start Java programming ',
+completed: true  
+}
+  ]
+  tasks$: BehaviorSubject<Task[]> =  new  BehaviorSubject<Task[]>(this.initTasks);
 
   constructor() { }
 
@@ -23,8 +39,36 @@ export class TasksService {
 
   }
 
+  updateTask(id:string,name: string, description: string) {
+      const currentTasks = [...this.tasks$.getValue()];
+      const updatedTasks = currentTasks.map(obj=> {
+        if(obj.id === id) {
+          return { ...obj,name: name, description: description}
+        }
+        return obj;
+      });
+
+      this.tasks$.next(updatedTasks);
+
+  }
+
+  deleteTask(id:string){
+    const currentTasks = [...this.tasks$.getValue()];
+    const updatedTasks = currentTasks.filter((task)=> {
+    return  task.id !=id;
+    
+    });
+    
+    this.tasks$.next(updatedTasks);
+
+  }
+
   getTasks() {
-    return this.tasks$.asObservable();
+    return this.tasks$;
+  }
+
+  filterTask() {
+
   }
 }
 
