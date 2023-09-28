@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
   constructor(private taskService: TasksService, 
               private dialog: MatDialog) {
     this.taskService.tasks$.subscribe((tasks)=> {
-      console.log('tasks:' , tasks)
     })
     
   }

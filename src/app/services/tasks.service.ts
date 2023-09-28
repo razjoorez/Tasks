@@ -8,10 +8,20 @@ import { Task } from '../model/task';
 export class TasksService {
   initTasks:Task[] = [
     {id: '1',
-    name: 'initial task',
-    description: 'loaded',
+    name: 'Piano',
+    description: 'Practice Chopin Nocturne 30 minutes a day ',
     completed: true  
-  }
+  },
+  {id: '2',
+  name: 'Exercise',
+  description: 'Walk at least 20 minutes a day',
+  completed: true  
+},
+{id: '3',
+name: 'Java',
+description: 'Start Java programming ',
+completed: true  
+}
   ]
   tasks$: BehaviorSubject<Task[]> =  new  BehaviorSubject<Task[]>(this.initTasks);
 
@@ -39,6 +49,17 @@ export class TasksService {
       });
 
       this.tasks$.next(updatedTasks);
+
+  }
+
+  deleteTask(id:string){
+    const currentTasks = [...this.tasks$.getValue()];
+    const updatedTasks = currentTasks.filter((task)=> {
+    return  task.id !=id;
+    
+    });
+    
+    this.tasks$.next(updatedTasks);
 
   }
 

@@ -37,11 +37,14 @@ export class AllTasksComponent implements AfterViewInit {
     this.taskService.tasks$.subscribe((tasks) => {
       this.tasks = tasks;
       this.dataSource = new MatTableDataSource<Task>(this.tasks)
-      console.log('all tasks: ', this.tasks)
     })
   }
 
   openEditDialog(task: Task) {
     this.dialog.open(EditTaskComponent, {data:{id:task.id, name: task.name, description:task.description}});
+  }
+  deleteTask(task: Task) {
+    this.taskService.deleteTask(task.id);
+  
   }
 }
