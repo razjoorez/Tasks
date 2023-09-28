@@ -16,15 +16,17 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AllTasksComponent } from './all-tasks/all-tasks.component';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     TaskComponent,
-    AllTasksComponent
+    AllTasksComponent,
+    EditTaskComponent
   ],
   imports: [
     BrowserModule,

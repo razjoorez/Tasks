@@ -29,7 +29,6 @@ export class TaskComponent {
 
   save() {
     if(this.addTaksForm.valid) {
-     // console.log(this.addTaksForm.value);
       console.log('save');
       this.taskService.addTask(this.addTaksForm.controls['name'].value, this.addTaksForm.controls['description'].value);
       this.dialogRef.close();
@@ -38,8 +37,6 @@ export class TaskComponent {
       )
       
     }
-
-
   }
   close() {
     this.dialogRef.close();
