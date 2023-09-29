@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AllTasksComponent } from './all-tasks.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 describe('AllTasksComponent', () => {
   let component: AllTasksComponent;
@@ -8,7 +12,13 @@ describe('AllTasksComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AllTasksComponent ]
+      declarations: [ AllTasksComponent ],
+      imports: [
+        MatDialogModule,
+        MatTableModule,
+        MatPaginatorModule,
+        BrowserAnimationsModule,
+      ]
     })
     .compileComponents();
 
