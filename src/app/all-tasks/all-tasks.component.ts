@@ -1,4 +1,4 @@
-import { AfterViewInit, Component , ViewChild} from '@angular/core';
+import { AfterViewInit, Component , OnChanges, SimpleChanges, ViewChild} from '@angular/core';
 import { TasksService } from '../services/tasks.service';
 import { Observable, startWith, map } from 'rxjs';
 import { Task } from '../model/task';
@@ -21,7 +21,7 @@ export interface PeriodicElement {
   templateUrl: './all-tasks.component.html',
   styleUrls: ['./all-tasks.component.scss']
 })
-export class AllTasksComponent implements AfterViewInit {
+export class AllTasksComponent implements AfterViewInit, OnChanges {
   displayedColumns: string[] = ['name', 'description', 'Action'];
   searchControl : FormControl = new FormControl('')
   tasks$!: Observable<Task[]>;
@@ -31,25 +31,14 @@ export class AllTasksComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-   
-
-    // this.filteredTasks.subscribe((item:Task[])=> {
-    //     this.dataSource = new MatTableDataSource<Task>(item);
-    //     console.log('filterd? ', item)
-    // })
-    
+    this.dataSource.paginator = this.paginator;  
   }
 
   constructor(private taskService: TasksService,
               private dialog: MatDialog) {
-                
-
-                this.filteredTasks = this.searchControl.valueChanges.pipe(
-                  startWith(''),
-                  map(value => this._filter(value || ''))
-                );
-
+  
+    this.getFilteredValues();
+    
     this.taskService.tasks$.subscribe((tasks) => {
       this.tasks = tasks;
       this.dataSource = new MatTableDataSource<Task>(this.tasks)
@@ -57,11 +46,16 @@ export class AllTasksComponent implements AfterViewInit {
 
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+  }
+
   openEditDialog(task: Task) {
     this.dialog.open(EditTaskComponent, {data:{id:task.id, name: task.name, description:task.description}});
   }
   deleteTask(task: Task) {
     this.taskService.deleteTask(task.id);
+   this.getFilteredValues();
   
   }
 
@@ -79,5 +73,12 @@ export class AllTasksComponent implements AfterViewInit {
        this.dataSource = new MatTableDataSource<Task>(taskSelected)
     }
    
+  }
+
+  getFilteredValues() {
+    this.filteredTasks = this.searchControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || ''))
+    );
   }
 }
