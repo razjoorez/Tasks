@@ -19,7 +19,7 @@ import { AllTasksComponent } from './all-tasks/all-tasks.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import { EditTaskComponent } from './edit-task/edit-task.component';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +44,7 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
     ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
+    MatAutocompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
