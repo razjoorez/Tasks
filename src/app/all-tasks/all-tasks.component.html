@@ -1,3 +1,20 @@
+<form >
+<mat-form-field style="width: 100%;">
+  <mat-label><mat-icon>search</mat-icon></mat-label>
+  <input
+   type="text"
+   matInput 
+  [formControl]="searchControl"
+  [matAutocomplete]="auto"
+   >
+   <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+    <mat-option *ngFor="let task of filteredTasks | async" [value]="task.name"(click)="taskClicked(task)">
+      {{task.name}} {{task.description}}
+        </mat-option>
+   </mat-autocomplete>
+  
+</mat-form-field>
+</form>
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
   

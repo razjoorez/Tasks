@@ -7,21 +7,38 @@ import { Task } from '../model/task';
 })
 export class TasksService {
   initTasks:Task[] = [
-    {id: '1',
-    name: 'Piano',
-    description: 'Practice Chopin Nocturne 30 minutes a day ',
-    completed: true  
-  },
-  {id: '2',
+  
+{id: '1',
+  name: 'Piano',
+  description: 'Practice Chopin Nocturne 30 minutes a day ',
+  completed: true  
+},
+{id: '2',
   name: 'Exercise',
   description: 'Walk at least 20 minutes a day',
   completed: true  
 },
-{id: '3',
-name: 'Java',
-description: 'Start Java programming ',
-completed: true  
-}
+  {id: '3',
+  name: 'Java',
+  description: 'Start Java programming ',
+  completed: true  
+  },
+  {id: '4',
+  name: 'Piano',
+  description: 'Practice scales ',
+  completed: true  
+  },
+  {id: '5',
+  name: 'Java',
+  description: 'Compare Java controller to .net',
+  completed: true  
+  },
+  {id: '6',
+  name: 'Exercise',
+  description: 'Do weight training twice a week',
+  completed: true  
+},
+
   ]
   tasks$: BehaviorSubject<Task[]> =  new  BehaviorSubject<Task[]>(this.initTasks);
 
