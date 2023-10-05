@@ -1,8 +1,11 @@
 {
+  "homepage": "https://razjoorez.github.io/tasks/",
   "name": "tasks",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
